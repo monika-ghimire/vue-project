@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="mt-6 ml-20  " >
-                            <router-link to="/registerAccount"> <img src="../assets/UnionIcon.png"  /></router-link> 
+                            <router-link to="/stepForm"> <img src="../assets/UnionIcon.png"  /></router-link> 
 
                         </div>
                     </div>

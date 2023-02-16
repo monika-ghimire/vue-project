@@ -8,7 +8,7 @@
           <router-link to="/">
             <div class="back-button flex mt-4 absolute">
               <img src="../assets/backIcon.png" />
-              <button class="ml-3 text-slate-400 font-semibold" @click="goBackPage">Back</button>
+              <button class="ml-3 text-slate-400 font-semibold" >Back</button>
             </div>
           </router-link>
 
@@ -61,11 +61,11 @@
                 >I agree to terms & conditions</el-checkbox
               >
 
-              <router-link to="/compeletProfile">
-                <el-button type="primary" @click="onSubmit" class="w-full"
-                  >Register Account</el-button
-                >
-              </router-link>
+              <!-- <router-link to="/compeletProfile">  </router-link> -->
+                <el-button type="primary"  @click="onSubmit" class="w-full">
+                  Register Account
+                </el-button>
+            
             </el-form>
 
             <p class="text-slate-400 text-center">Or</p>
@@ -100,30 +100,27 @@ export default {
   computed: {
     ...mapGetters({
       getvalue: "form/counter",
+      // getFormValue:'form/showFormValue'
     }),
   },
 
+
   methods: {
-    ...mapActions("form", ["increment","decrement"]),
-
-    async loadData() {
-      await this.increment();
-    },
-
-    async loadDataBack() {
-      await this.decrement();
-    },
+    ...mapActions("form", ["increment",'updateForm']),
 
     onSubmit() {
       console.log("form1");
-      this.loadData();
+      this.increment();
+    
+    //  console.log('form objet enter')
+    //  console.log(this.formLabelAlign)
+
+     
+     console.log('trying to dispatch obj  mapaction 1ST FORM');
+     this.updateForm(this.formLabelAlign);
     },
 
-    goBackPage(){
-        this.loadDataBack();
-        console.log("back go page 0")
-      
-    }
+   
   },
 };
 </script>

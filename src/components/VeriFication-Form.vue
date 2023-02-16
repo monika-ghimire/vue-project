@@ -5,16 +5,16 @@
   
         <div class=" pb-5">
           <div class="p-10 relative">
-              <router-link to="/registerAccount"> 
+              <!-- <router-link to="/compeletProfile">     </router-link>  -->
             <div class=" back-button flex mt-4 absolute">
               <img src="../assets/backIcon.png" />
               <button class="ml-3 text-slate-400 font-semibold" @click="goBackPage">Back</button>
             </div>
-          </router-link> 
+      
   
             <div class="float-right mt-5">
-              <p class="text-slate-300">STEP 0{{ getvalue }}/03</p>
-              <P class="text-slate-400 font-semibold">Residency Info.</P>
+              <p class="text-slate-300">STEP 0{{getvalue}}/03</p>
+              <P class="text-slate-400 font-semibold">Bank Verification.</P>
             </div>
           </div>
   
@@ -34,21 +34,13 @@
                 label-width="100px"
                 :model="formLabelAlign">
   
-                <el-form-item label="Phone number">
-                  <el-input v-model="formLabelAlign.number" placeholder="Please enter phone number" class=" "></el-input>
+                <el-form-item label="Bank verification number (BVN)">
+                  <el-input v-model="formLabelAlign.number" placeholder="xxxxxxxxxx" class=" "></el-input>
                 </el-form-item>
   
-                <el-form-item label="Your address">
-                  <el-input v-model="formLabelAlign.address" placeholder="Please enter address" class=" "></el-input>
-                </el-form-item>
-  
-                <el-form-item label="Country of residence">
-                  <el-input v-model="formLabelAlign.country_residence" placeholder="Please select" class=" "></el-input>
-                </el-form-item>
-   
-                <router-link to="/verification">
+                
                 <el-button type="primary" @click="onSubmit" class=" w-full">Save & Continue</el-button>
-                </router-link>
+
                 <div class="mt-6 flex ml-20">
                     <img  src="../assets/lock.jpg" class="ml-10 "/>
                     <p class="text-center text-slate-400 ml-5 ">Your Info is safely secured</p>
@@ -65,7 +57,7 @@
   
   <script>
   import OasisTitle from "../components/oasis-title.vue";
-  import { mapActions, mapGetters } from "vuex";
+  import { mapActions,mapGetters } from 'vuex'
   
   export default {
       data() {
@@ -83,41 +75,25 @@
     components: {
       OasisTitle,
     },
-  
- 
     computed: {
-    ...mapGetters({
-      getvalue: "form/counter",
-    }),
-  },
+  ...mapGetters({
+    getvalue:'form/counter'
+  })
+},
 
   methods: {
-    ...mapActions("form", ["increment","decrement"]),
-
-    async loadData() {
-      await this.increment();
-     
-    },
-    // async loadDataBack() {
-    //   await ;
-    // },
+    ...mapActions("form", ["decrement"]),
 
     onSubmit() {
-    
-      console.log('form2');
-      this.loadData();
+      console.log('form3');
     },
 
-     goBackPage(){
-        console.log("back btn clicked")
-        this.decrement()
-        console.log("back go page 1")
-      
+    goBackPage(){
+      this.decrement()
+      console.log(this.getvalue)
+        console.log("back go page 2")
     }
   },
-//   mounted() {
-//     this.loadData();
-//   },
 
   };
   </script>

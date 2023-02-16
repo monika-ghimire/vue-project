@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
- import RegisterAccount from '../pages/register-account.vue'
+
  
 import  JoinUsPage from '../pages/join-us.vue';
-import CompeletProfile from '../pages/complete-profile.vue'
-import VeriFicaTionForm from '../pages/VeriFication-Form.vue'
+import StepForm from '../pages/stepForm.vue'
 
 Vue.use(VueRouter)
 
@@ -14,24 +13,13 @@ const routes = [
     name: 'home',
     component:JoinUsPage
   },
-
   {
-    path: '/registerAccount',
-    name: 'registe rAccount',
-    component: RegisterAccount
+    path: '/stepForm',
+    name: 'step Form',
+    component:StepForm
   },
-  {
-    path:'/compeletProfile',
-    name:'CompeletProfile',
-    component:CompeletProfile
 
-  },
-  {
-    path:'/verification',
-    name:'VeriFicaTionForm',
-    component:VeriFicaTionForm
-
-  }
+ 
 
 ]
 

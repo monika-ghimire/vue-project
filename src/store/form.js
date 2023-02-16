@@ -1,32 +1,54 @@
 
 
 const state = {
-    data:1
+    data:1,
+    formValue:[]
+      
+    
 };
 
 const getters={
     counter(state) {
       return state.data
-    }
+    },
+    showFormValue(state){
+      console.log(" inside getter state formValue")
+      console.log(state.formValue)
+      return state.formValue
+    },
+
   };
 
 const mutations= {
+  setFormData (state,data) {
+    console.log('inside mutations updateForm')
+    state.formValue=data
+    console.log("the value inside the state is :");
+    console.log(state.formValue)
+  },
+
     INCREMENT(state) {
         console.log('inside mutation')
       state.data=state.data + 1
-      console.log(state.data)
+      
     },
 
     DECREMENT(state) {
-        console.log('inside mutation  DECREMENT')
+       
         state.data=state.data - 1
-        console.log("decrement " + " " + state.data)
+      
     },
   };
 
 const actions = {
+
+  updateForm (context,data) {
+    console.log('inside action   updateForm')
+    console.log(data);
+    context.commit('setFormData',data)
+  },
     increment(context) {
-        console.log('iside action')
+      
         context.commit('INCREMENT')
      },
      decrement(context) {
